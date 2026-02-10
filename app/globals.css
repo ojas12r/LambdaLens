@@ -1,0 +1,241 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Landing page background grid */
+.bg-grid {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Gradient glow behind hero */
+.hero-glow {
+  position: absolute;
+  width: 60%;
+  height: 50%;
+  top: 10%;
+  left: 20%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(7, 144, 108, 0.15) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Gradient text shimmer */
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+/* Terminal cursor blink */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Health ring animation */
+@keyframes ring-fill {
+  from {
+    stroke-dashoffset: 283;
+  }
+}
+.animate-ring {
+  animation: ring-fill 1.5s ease-out forwards;
+}
+
+/* Fade-in-up for cards */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out both;
+}
+
+/* Stagger children */
+.stagger > *:nth-child(1) { animation-delay: 0ms; }
+.stagger > *:nth-child(2) { animation-delay: 60ms; }
+.stagger > *:nth-child(3) { animation-delay: 120ms; }
+.stagger > *:nth-child(4) { animation-delay: 180ms; }
+.stagger > *:nth-child(5) { animation-delay: 240ms; }
+.stagger > *:nth-child(6) { animation-delay: 300ms; }
+
+/* Custom scrollbar for dark panels */
+.scrollbar-dark::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-dark::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-dark::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+.scrollbar-dark::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Subtle shimmer for loading states */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 25%, rgba(255,255,255,0.05) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ─── Tremor / Recharts dark mode overrides ─── */
+
+/* Tooltip */
+.dark .recharts-tooltip-wrapper .recharts-default-tooltip,
+.dark [class*="tremor-Tooltip"] {
+  background-color: #1e2130 !important;
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+.dark .recharts-tooltip-wrapper .recharts-default-tooltip .recharts-tooltip-label,
+.dark .recharts-tooltip-wrapper .recharts-default-tooltip p {
+  color: #e2e8f0 !important;
+}
+.dark .recharts-tooltip-wrapper .recharts-default-tooltip .recharts-tooltip-item {
+  color: #cbd5e1 !important;
+}
+
+/* Grid lines */
+.dark .recharts-cartesian-grid line {
+  stroke: rgba(148, 163, 184, 0.08) !important;
+}
+
+/* Axis labels & ticks */
+.dark .recharts-xAxis .recharts-cartesian-axis-tick-value,
+.dark .recharts-yAxis .recharts-cartesian-axis-tick-value {
+  fill: #64748b !important;
+}
+.dark .recharts-xAxis line,
+.dark .recharts-yAxis line {
+  stroke: rgba(148, 163, 184, 0.15) !important;
+}
+
+/* Reference / cursor lines */
+.dark .recharts-reference-line line,
+.dark .recharts-cursor {
+  stroke: rgba(148, 163, 184, 0.2) !important;
+}
+
+/* Donut / Pie chart labels */
+.dark .recharts-pie-label-text {
+  fill: #94a3b8 !important;
+}
+
+/* Donut center label */
+.dark text[class*="fill-tremor-content-emphasis"],
+.dark [data-testid="tremor-default-donut-chart-label"] {
+  fill: #e2e8f0 !important;
+}
+.dark text[class*="fill-tremor-content"] {
+  fill: #94a3b8 !important;
+}
+
+/* Donut sector styling */
+.dark .recharts-pie-sector path {
+  stroke: #101010 !important;
+  stroke-width: 2px !important;
+  fill-opacity: 1 !important;
+  opacity: 1 !important;
+}
+/* Force Tremor donut chart colors bright in dark mode */
+.dark .recharts-sector {
+  fill-opacity: 1 !important;
+  opacity: 1 !important;
+}
+.dark [class*="tremor-DonutChart"] .recharts-sector,
+.dark [class*="tremor-DonutChart"] path {
+  fill-opacity: 1 !important;
+}
+
+/* Legend */
+.dark .recharts-legend-item-text {
+  color: #94a3b8 !important;
+}
+
+/* ─── Tremor dark mode CSS variable overrides ─── */
+.dark {
+  --tremor-content: #94a3b8;
+  --tremor-content-emphasis: #e2e8f0;
+  --tremor-content-strong: #f1f5f9;
+  --tremor-content-subtle: #64748b;
+  --tremor-content-inverted: #0C0C0C;
+  --tremor-background: #101010;
+  --tremor-background-emphasis: #1e293b;
+  --tremor-background-subtle: #0C0C0C;
+  --tremor-background-muted: #1a1a1a;
+  --tremor-border-default: #334155;
+  --tremor-ring: rgba(7, 144, 108, 0.3);
+  --tremor-brand: #07906C;
+  --tremor-brand-emphasis: #059669;
+  --tremor-brand-subtle: rgba(7, 144, 108, 0.15);
+  --tremor-brand-muted: rgba(7, 144, 108, 0.1);
+}
+
+/* Force bright Tremor chart fills in dark mode */
+.dark .fill-emerald-500,   .dark .dark\:fill-emerald-500   { fill: #10b981 !important; }
+.dark .fill-cyan-500,      .dark .dark\:fill-cyan-500      { fill: #06b6d4 !important; }
+.dark .fill-amber-500,     .dark .dark\:fill-amber-500     { fill: #f59e0b !important; }
+.dark .fill-rose-500,      .dark .dark\:fill-rose-500      { fill: #f43f5e !important; }
+.dark .fill-violet-500,    .dark .dark\:fill-violet-500    { fill: #8b5cf6 !important; }
+.dark .fill-blue-500,      .dark .dark\:fill-blue-500      { fill: #3b82f6 !important; }
+.dark .fill-orange-500,    .dark .dark\:fill-orange-500    { fill: #f97316 !important; }
+.dark .fill-pink-500,      .dark .dark\:fill-pink-500      { fill: #ec4899 !important; }
+.dark .fill-slate-500,     .dark .dark\:fill-slate-500     { fill: #64748b !important; }
+
+/* Force bright Tremor chart strokes in dark mode */
+.dark .stroke-emerald-500, .dark .dark\:stroke-emerald-500 { stroke: #10b981 !important; }
+.dark .stroke-cyan-500,    .dark .dark\:stroke-cyan-500    { stroke: #06b6d4 !important; }
+.dark .stroke-amber-500,   .dark .dark\:stroke-amber-500   { stroke: #f59e0b !important; }
+.dark .stroke-rose-500,    .dark .dark\:stroke-rose-500    { stroke: #f43f5e !important; }
+.dark .stroke-violet-500,  .dark .dark\:stroke-violet-500  { stroke: #8b5cf6 !important; }
+.dark .stroke-blue-500,    .dark .dark\:stroke-blue-500    { stroke: #3b82f6 !important; }
+.dark .stroke-orange-500,  .dark .dark\:stroke-orange-500  { stroke: #f97316 !important; }
+.dark .stroke-pink-500,    .dark .dark\:stroke-pink-500    { stroke: #ec4899 !important; }
+.dark .stroke-slate-500,   .dark .dark\:stroke-slate-500   { stroke: #64748b !important; }
+
+/* Brighten area chart gradient fills */
+.dark .recharts-area .recharts-area-area {
+  fill-opacity: 0.35 !important;
+}
+.dark .recharts-area .recharts-area-curve {
+  stroke-width: 2.5px !important;
+  stroke-opacity: 1 !important;
+}
