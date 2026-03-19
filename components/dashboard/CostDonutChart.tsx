@@ -75,3 +75,4 @@ export function CostDonutChart({ data }: CostDonutChartProps) {
     </div>
   );
 }
+
