@@ -1,0 +1,18 @@
+{
+  "functions": {
+    "app/api/ingest/route.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    },
+    "app/api/chat/route.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/ingest?type=billing_check",
+      "schedule": "0 * * * *"
+    }
+  ]
+}
