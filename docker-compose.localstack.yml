@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  localstack:
+    container_name: aegis-localstack
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+      - "4510-4559:4510-4559"
+    environment:
+      - DEBUG=1
+      - SERVICES=s3,logs
+      - DEFAULT_REGION=us-east-1
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - LOCALSTACK_ACKNOWLEDGE_ACCOUNT_REQUIREMENT=1
+    volumes:
+      - localstack_data:/var/lib/localstack
+      - ./scripts/localstack/init:/etc/localstack/init/ready.d
+      - ./scripts/localstack/data:/seed-data
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  localstack_data:
+    driver: local
