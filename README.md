@@ -1,6 +1,12 @@
-# 🛡️ The Aegis Project
+<p align="center">
+  <img src="public/aegis-logo.avif" alt="Aegis Logo" width="180" />
+</p>
 
-An AI-powered FinOps detective that analyzes your cloud spending, detects anomalies, and provides intelligent insights.
+<h1 align="center">🛡️ The Aegis Project</h1>
+
+<p align="center">
+  An AI-powered FinOps detective that analyzes your cloud spending, detects anomalies, and provides intelligent insights.
+</p>
 
 ---
 
