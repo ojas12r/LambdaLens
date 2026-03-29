@@ -12,7 +12,7 @@
   "crons": [
     {
       "path": "/api/ingest?type=billing_check",
-      "schedule": "0 * * * *"
+      "schedule": "0 0 * * *"
     }
   ]
 }

@@ -82,7 +82,7 @@ export function SetupForm({ initialMode }: SetupFormProps) {
   const tabs: { key: Provider; label: string; icon: React.ReactNode }[] = [
     { key: "aws", label: "AWS", icon: <img src="/aws-logo.avif" alt="AWS" className="w-6 h-6 object-contain opacity-90" /> },
     { key: "vercel", label: "Vercel", icon: <Triangle className="w-5 h-5 fill-current pt-0.5" /> },
-    { key: "mock", label: "Demo", icon: <img src="/demo.avif" alt="Demo" className="w-6 h-6 object-contain opacity-90 brightness-0 invert" /> },
+    { key: "mock", label: "Demo", icon: <img src="/demo.png" alt="Demo" className="w-6 h-6 object-contain opacity-90 brightness-0 invert" /> },
   ];
 
   return (
