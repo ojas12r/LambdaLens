@@ -2,7 +2,7 @@
   <img src="public/aegis-logo.avif" alt="Aegis Logo" width="180" />
 </p>
 
-<h1 align="center">🛡️ The Aegis Project</h1>
+<h1 align="center"> LambdaLens  </h1>
 
 <p align="center">
   An AI-powered FinOps detective that analyzes your cloud spending, detects anomalies, and provides intelligent insights.
